@@ -4,35 +4,400 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Module 2 Solution</title>
-    <link rel="stylesheet" href="css/style.css">
+    <title>GitHub Upload Guide - No Frameworks</title>
+    <style>
+        /* Custom CSS without any frameworks */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(to bottom, #6a11cb 0%, #2575fc 100%);
+            padding: 20px;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            padding: 30px 0;
+            color: white;
+        }
+
+        h1 {
+            font-size: 2.8rem;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            margin: 25px 0 15px;
+            color: #1a2a6c;
+        }
+
+        h3 {
+            font-size: 1.4rem;
+            margin: 20px 0 10px;
+            color: #2575fc;
+        }
+
+        .description {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 30px;
+            color: #f8f8f8;
+        }
+
+        .card {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            padding: 25px;
+            margin-bottom: 30px;
+            overflow: hidden;
+        }
+
+        .step-number {
+            display: inline-block;
+            background: #6a11cb;
+            color: white;
+            width: 40px;
+            height: 40px;
+            text-align: center;
+            line-height: 40px;
+            border-radius: 50%;
+            margin-right: 15px;
+            font-weight: bold;
+        }
+
+        .step {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 25px;
+            padding-bottom: 25px;
+            border-bottom: 1px dashed #e0e0e0;
+        }
+
+        .step:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+
+        .step-content {
+            flex: 1;
+        }
+
+        .step-icon {
+            font-size: 24px;
+            color: #6a11cb;
+            margin-right: 15px;
+            min-width: 30px;
+            font-weight: bold;
+        }
+
+        .code {
+            background: #2d3748;
+            color: #e2e8f0;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            overflow-x: auto;
+            font-family: 'Courier New', monospace;
+        }
+
+        .screenshot {
+            text-align: center;
+            margin: 20px 0;
+            padding: 10px;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+
+        .screenshot-placeholder {
+            height: 200px;
+            background: linear-gradient(to right, #6a11cb, #2575fc);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+        }
+
+        .caption {
+            font-style: italic;
+            color: #666;
+            margin-top: 8px;
+        }
+
+        .note {
+            background: #ffeaa7;
+            padding: 15px;
+            border-left: 4px solid #fdcb6e;
+            margin: 15px 0;
+            border-radius: 4px;
+        }
+
+        .warning {
+            background: #ff7675;
+            color: white;
+            padding: 15px;
+            border-left: 4px solid #d63031;
+            margin: 15px 0;
+            border-radius: 4px;
+        }
+
+        .success {
+            background: #55efc4;
+            padding: 15px;
+            border-left: 4px solid #00b894;
+            margin: 15px 0;
+            border-radius: 4px;
+        }
+
+        .button {
+            display: inline-block;
+            background: #6a11cb;
+            color: white;
+            padding: 12px 25px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            margin: 10px 5px;
+            transition: background 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .button:hover {
+            background: #2575fc;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            color: white;
+            padding: 20px;
+        }
+
+        /* Responsive design without frameworks */
+        @media (max-width: 768px) {
+            .step {
+                flex-direction: column;
+            }
+
+            .step-icon {
+                margin-bottom: 10px;
+            }
+
+            h1 {
+                font-size: 2.2rem;
+            }
+
+            .card {
+                padding: 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 10px;
+            }
+
+            h1 {
+                font-size: 1.8rem;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+            }
+
+            .description {
+                font-size: 1rem;
+            }
+        }
+    </style>
 </head>
 
 <body>
-    <h1>Our Menu</h1>
-
     <div class="container">
-        <section class="section" id="section1">
-            <div class="section-title" id="title1">Chicken</div>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et
-                dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                ex ea commodo consequat.</p>
-        </section>
+        <header>
+            <h1>How to Upload to GitHub</h1>
+            <p class="description">A step-by-step guide to uploading your Module 2 Solution to GitHub and GitHub Pages
+            </p>
+        </header>
 
-        <section class="section" id="section2">
-            <div class="section-title" id="title2">Beef</div>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et
-                dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                ex ea commodo consequat.</p>
-        </section>
+        <div class="card">
+            <h2><span class="step-number">1</span>Create a GitHub Account</h2>
+            <div class="step">
+                <div class="step-icon">→</div>
+                <div class="step-content">
+                    <p>If you don't have a GitHub account yet, go to <a href="https://github.com/"
+                            target="_blank">github.com</a> and sign up. It's free!</p>
+                    <div class="note">
+                        <strong>Note:</strong> Choose a username that you'll be comfortable sharing with potential
+                        employers, as GitHub is often used as a portfolio for developers.
+                    </div>
+                </div>
+            </div>
+        </div>
 
-        <section class="section" id="section3">
-            <div class="section-title" id="title3">Sushi</div>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et
-                dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                ex ea commodo consequat.</p>
-        </section>
+        <div class="card">
+            <h2><span class="step-number">2</span>Create a New Repository</h2>
+            <div class="step">
+                <div class="step-icon">→</div>
+                <div class="step-content">
+                    <p>After logging in, click the "+" icon in the top right corner and select "New repository".</p>
+                    <div class="screenshot">
+                        <div class="screenshot-placeholder">GitHub Repository Creation Screen</div>
+                        <div class="caption">Example: GitHub's new repository button</div>
+                    </div>
+                    <p>Name your repository: <strong>username.github.io</strong> (replace "username" with your GitHub
+                        username)</p>
+                    <div class="code">
+                        Repository name: yourusername.github.io<br>
+                        Description: My Coursera HTML, CSS, and JS course assignments<br>
+                        Public: ✓<br>
+                        Initialize with a README: ✓
+                    </div>
+                    <div class="warning">
+                        <strong>Important:</strong> The repository must be named exactly as yourusername.github.io for
+                        GitHub Pages to work automatically.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2><span class="step-number">3</span>Upload Your Files</h2>
+            <div class="step">
+                <div class="step-icon">→</div>
+                <div class="step-content">
+                    <p>There are three main ways to upload your files to GitHub:</p>
+
+                    <h3>Option A: Drag and Drop</h3>
+                    <p>On your repository page, simply drag your <strong>module2-solution</strong> folder and drop it
+                        into the file browser area.</p>
+
+                    <h3>Option B: Using Git Commands</h3>
+                    <p>If you have Git installed on your computer, you can use these commands:</p>
+                    <div class="code">
+                        git init<br>
+                        git add .<br>
+                        git commit -m "Add module 2 solution"<br>
+                        git branch -M main<br>
+                        git remote add origin https://github.com/username/username.github.io.git<br>
+                        git push -u origin main
+                    </div>
+
+                    <h3>Option C: GitHub Desktop</h3>
+                    <p>Download GitHub Desktop, clone your repository, add your files, and push them to GitHub.</p>
+
+                    <div class="note">
+                        <strong>Tip:</strong> Make sure your folder structure looks like this in your repository:<br>
+                        <strong>username.github.io</strong> > <strong>module2-solution</strong> >
+                        <strong>index.html</strong> and <strong>css</strong> > <strong>style.css</strong>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2><span class="step-number">4</span>Set Up GitHub Pages</h2>
+            <div class="step">
+                <div class="step-icon">→</div>
+                <div class="step-content">
+                    <p>Once your files are uploaded:</p>
+                    <ol>
+                        <li>Go to your repository on GitHub</li>
+                        <li>Click on the "Settings" tab</li>
+                        <li>Scroll down to the "GitHub Pages" section</li>
+                        <li>Under "Source", select "main" branch (or "master" if that's what you have)</li>
+                        <li>Click Save</li>
+                    </ol>
+                    <div class="screenshot">
+                        <div class="screenshot-placeholder">GitHub Pages Settings Screen</div>
+                        <div class="caption">Example: GitHub Pages settings</div>
+                    </div>
+                    <div class="success">
+                        <strong>Success!</strong> Your site will be published at
+                        <strong>https://username.github.io/module2-solution</strong> within a few minutes.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2><span class="step-number">5</span>Submit Your Assignment</h2>
+            <div class="step">
+                <div class="step-icon">→</div>
+                <div class="step-content">
+                    <p>For your Coursera assignment submission:</p>
+                    <ol>
+                        <li>Go to the assignment page on Coursera</li>
+                        <li>Submit the URL of your GitHub Pages site:
+                            <strong>https://username.github.io/module2-solution</strong></li>
+                        <li>Also include the URL of your GitHub repository:
+                            <strong>https://github.com/username/username.github.io</strong></li>
+                    </ol>
+                    <div class="note">
+                        <strong>Remember:</strong> It might take a few minutes after setting up GitHub Pages for your
+                        site to become available.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div style="text-align: center; margin: 30px 0;">
+            <a href="https://github.com/" class="button">Go to GitHub</a>
+            <a href="https://www.coursera.org/learn/html-css-javascript-for-web-developers" class="button">Coursera
+                Course</a>
+        </div>
+
+        <div class="footer">
+            <p>© 2023 HTML, CSS, and Javascript for Web Developers Course</p>
+            <p>This guide is for educational purposes only</p>
+        </div>
     </div>
+
+    <script>
+        // Simple animation for step elements when they come into view
+        document.addEventListener('DOMContentLoaded', function () {
+            const steps = document.querySelectorAll('.step');
+
+            function checkVisibility() {
+                steps.forEach(step => {
+                    const position = step.getBoundingClientRect();
+                    if (position.top < window.innerHeight * 0.9) {
+                        step.style.opacity = 1;
+                        step.style.transform = 'translateY(0)';
+                    }
+                });
+            }
+
+            // Initialize step styles
+            steps.forEach(step => {
+                step.style.opacity = 0;
+                step.style.transform = 'translateY(20px)';
+                step.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            });
+
+            // Check visibility on load and scroll
+            window.addEventListener('scroll', checkVisibility);
+            checkVisibility();
+        });
+    </script>
 </body>
 
 </html>
